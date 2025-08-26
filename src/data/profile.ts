@@ -4,7 +4,7 @@ export const profileData: ProfileData = {
   personal: {
     name: "Carlos Eduardo",
     title: "Desenvolvedor Full Stack Jr",
-    description: "Sou um desenvolvedor apaixonado por tecnologia e inovação. Estudante de desenvolvimento web moderno, sempre buscando aprender novas tecnologias e criar soluções eficientes que impactam positivamente a vida das pessoas.",
+    description: "Sou um desenvolvedor Jr apaixonado por tecnologia e inovação. Estudante de desenvolvimento web moderno, sempre buscando aprender novas tecnologias e criar soluções eficientes que impactam positivamente a vida das pessoas.",
     avatar: "/user.jpg",
     githubUrl: "https://github.com/CarlosDev0410",
     linkedinUrl: "https://linkedin.com/in/carlos-eduardo-souza-dev-jr/",
@@ -18,15 +18,15 @@ export const profileData: ProfileData = {
   },
   experience: [
     {
-      title: "1+ anos de desenvolvimento web",
-      description: "Experiência sólida em desenvolvimento frontend e backend"
+      title: "Analista de suporte em sistemas",
+      description: "Experiência com projetos pessoais em desenvolvimento frontend e backend"
     },
     {
-      title: "Projetos para startups e empresas",
+      title: "Desenvolvimento web com nextJS",
       description: "Desenvolvimento de soluções para diversos tipos de negócios"
     },
     {
-      title: "Trabalho remoto e colaborativo",
+      title: "Analista de Ecommerce",
       description: "Experiência em equipes distribuídas e metodologias ágeis"
     }
   ],
@@ -37,7 +37,7 @@ export const profileData: ProfileData = {
     },
     {
       title: "Certificações em tecnologias web",
-      description: "Certificações em React, Node.js e outras tecnologias"
+      description: "Certificações em NextJS, React, Node.js e outras tecnologias"
     },
     {
       title: "Cursos especializados online",

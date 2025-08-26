@@ -19,35 +19,35 @@ export const skillsData: SkillsData = {
         { name: "Node.js", level: 40 },
         { name: "Express", level: 10 },
         { name: "PostgreSQL", level: 70 },
-        { name: "MongoDB", level: 0 },
-        { name: "REST APIs", level: 0 },
-        { name: "GraphQL", level: 0 }
+        { name: "Python", level: 40 },
+        { name: "REST APIs", level: 10 },
+        { name: "GraphQL", level: 10 }
       ]
     },
     {
       title: "Ferramentas",
       skills: [
         { name: "Git", level: 90 },
-        { name: "Docker", level: 70 },
-        { name: "AWS", level: 65 },
+        { name: "Supabase", level: 90 },
+        { name: "Cursor", level: 65 },
         { name: "Vercel", level: 85 },
-        { name: "Figma", level: 60 },
+        { name: "Railway", level: 60 },
         { name: "VS Code", level: 95 }
       ]
     }
   ],
   additionalTechnologies: [
-    "Python",
-    "Java",
-    "PHP",
-    "Laravel",
-    "Vue.js",
-    "Angular",
-    "Sass",
-    "Webpack",
-    "Jest",
+    "Looker Studio",
+    "PowerBI",
+    "Marketplaces",
+    "ERP",
+    "Dbeaver",
+    "OpenAI",
+    "Gemini",
+    "Claude AI",
+    "Terminal CLI",
+    "Prisma",
     "Cypress",
-    "Redis",
-    "Firebase"
+    "Redis"
   ]
 };

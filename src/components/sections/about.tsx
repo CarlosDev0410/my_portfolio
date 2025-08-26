@@ -1,11 +1,10 @@
-
-
 'use client'
 
 import { motion, useAnimation, useInView } from 'framer-motion'
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { getProfileData } from '@/lib/data'
+import { ShineBorder } from '../magicui/shine-border'
 
 export function About() {
   const ref = useRef(null)
@@ -45,7 +44,8 @@ export function About() {
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           {/* Avatar */}
           <div className="flex justify-center">
-            <div className="relative">
+            <div className="relative rounded-full">
+            <ShineBorder borderWidth={3} shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
               <Image
                 src={personal.avatar}
                 alt={`Foto de ${personal.name}`}
@@ -65,7 +65,8 @@ export function About() {
                 {personal.title}
               </h3>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                {personal.description}
+              Com mais de dois anos de experiência em tecnologia, me dedico a criar soluções que otimizam processos e resolvem problemas de forma eficiente. Atualmente, sou estudante de <strong>desenvolvimento full-stack</strong> e busco aprimorar minhas habilidades para construir soluções que impactem positivamente o dia a dia das equipes. 
+              Sou formado em Análise e <strong>Desenvolvimento de Sistemas</strong> e estou em constante aprendizado. Meu objetivo é me tornar um profissional completo, capaz de enfrentar e superar qualquer desafio técnico que surja.
               </p>
             </div>
 

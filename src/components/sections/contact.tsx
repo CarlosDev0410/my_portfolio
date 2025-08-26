@@ -19,37 +19,37 @@ export function Contact() {
     {
       icon: Mail,
       title: "Email",
-      value: "contato@exemplo.com",
-      href: "mailto:contato@exemplo.com",
+      value: "carloseduardo.dev2022@gmail.com",
+      href: "mailto:carloseduardo.dev2022@gmail.com",
     },
     {
       icon: Phone,
       title: "Telefone",
-      value: "+55 (11) 99999-9999",
-      href: "tel:+5511999999999",
+      value: "",
+      href: "tel:000000000",
     },
     {
       icon: MapPin,
       title: "Localização",
-      value: "São Paulo, Brasil",
-      href: "#",
+      value: "Duque de Caxias, Rio de janeiro",
+      href: "https://maps.app.goo.gl/hVTWAp6Z4xhhDkch9",
     },
   ];
 
   const socialLinks = [
     {
       icon: Github,
-      href: "https://github.com/seu-usuario",
+      href: "https://github.com/CarlosDev0410",
       label: "GitHub",
     },
     {
       icon: Linkedin,
-      href: "https://linkedin.com/in/seu-usuario",
+      href: "https://www.linkedin.com/in/carlos-eduardo-souza-dev-jr/",
       label: "LinkedIn",
     },
     {
       icon: Instagram,
-      href: "https://instagram.com/seu-usuario",
+      href: "https://instagram.com/_cadusouza01",
       label: "Instagram",
     },
   ];
@@ -80,6 +80,7 @@ export function Contact() {
             <a
               key={info.title}
               href={info.href}
+              target="_blank"
               className="flex flex-col items-center gap-2 p-6 bg-card border border-border rounded-lg hover:bg-accent transition-colors"
             >
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-2">
