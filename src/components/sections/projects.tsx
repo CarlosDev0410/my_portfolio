@@ -1,10 +1,17 @@
 'use client'
 
 import { motion, useAnimation, useInView } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { ExternalLink, Github } from "lucide-react";
 import { getProjectsData, getProfileData } from '@/lib/data'
 import Image from 'next/image';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 
 export function Projects() {
   const ref = useRef(null)
@@ -16,13 +23,9 @@ export function Projects() {
       mainControls.start('visible')
     }
   }, [isInView, mainControls])
-  const [activeFilter, setActiveFilter] = useState("all");
-  const { projects, filters } = getProjectsData();
-  const { personal } = getProfileData();
 
-  const filteredProjects = projects.filter(
-    (project) => activeFilter === "all" || project.category === activeFilter
-  );
+  const { projects } = getProjectsData();
+  const { personal } = getProfileData();
 
   return (
     <motion.section
@@ -47,94 +50,89 @@ export function Projects() {
           </p>
         </div>
 
-        {/* Filtros */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {filters.map((filter) => (
-            <button
-              key={filter.id}
-              onClick={() => setActiveFilter(filter.id)}
-              className={`px-6 py-2 rounded-full font-medium transition-all ${
-                activeFilter === filter.id
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-card border border-border text-foreground hover:bg-accent"
-              }`}
-            >
-              {filter.label}
-            </button>
-          ))}
-        </div>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full max-w-7xl mx-auto"
+        >
+          <CarouselContent>
+            {projects.map((project) => (
+              <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/3">
+                <div className="p-1 h-full">
+                  <div
+                    className="bg-card border border-border rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full"
+                  >
+                    {/* Imagem do Projeto */}
+                    <div className="relative h-48 w-full">
+                      <Image
+                        src={project.image}
+                        alt={`Imagem do projeto ${project.title}`}
+                        fill
+                        className='object-cover'
+                      />
+                      {project.featured && (
+                        <div className="absolute top-4 left-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
+                          Destaque
+                        </div>
+                      )}
+                    </div>
 
-        {/* Grid de Projetos */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {filteredProjects.map((project) => (
-            <div
-              key={project.id}
-              className="bg-card border border-border rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-            >
-              {/* Imagem do Projeto */}
-              <div className="relative h-48 w-full">
-                <Image
-                  src={project.image}
-                  alt={`Imagem do projeto ${project.title}`}
-                  fill
-                  className='object-cover'
-                />
-                {project.featured && (
-                  <div className="absolute top-4 left-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
-                    Destaque
+                    {/* Conteúdo */}
+                    <div className="p-6 flex flex-col flex-grow">
+                      <h3 className="text-xl font-bold text-foreground mb-3">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground mb-4 line-clamp-3 flex-grow">
+                        {project.description}
+                      </p>
+
+                      {/* Tecnologias */}
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {project.technologies.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-3 py-1 bg-muted border border-border rounded-full text-xs font-medium text-foreground"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Links */}
+                      <div className="flex gap-3 mt-auto">
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          Demo
+                        </a>
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 border border-border rounded-lg text-sm font-medium text-foreground hover:bg-accent transition-colors"
+                        >
+                          <Github className="w-4 h-4" />
+                          Código
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                )}
-              </div>
-
-              {/* Conteúdo */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-foreground mb-3">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground mb-4 line-clamp-3">
-                  {project.description}
-                </p>
-
-                {/* Tecnologias */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 bg-muted border border-border rounded-full text-xs font-medium text-foreground"
-                    >
-                      {tech}
-                    </span>
-                  ))}
                 </div>
-
-                {/* Links */}
-                <div className="flex gap-3">
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    Demo
-                  </a>
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 border border-border rounded-lg text-sm font-medium text-foreground hover:bg-accent transition-colors"
-                  >
-                    <Github className="w-4 h-4" />
-                    Código
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="hidden sm:flex" />
+          <CarouselNext className="hidden sm:flex" />
+        </Carousel>
 
         {/* CTA */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-16">
           <p className="text-muted-foreground mb-4">
             Interessado em ver mais projetos?
           </p>

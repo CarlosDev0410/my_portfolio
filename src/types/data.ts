@@ -32,7 +32,7 @@ export interface ProjectFilter {
 
 export interface ProjectsData {
   projects: Project[];
-  filters: ProjectFilter[];
+  filters?: ProjectFilter[];
 }
 
 export interface PersonalInfo {
