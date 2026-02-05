@@ -3,13 +3,13 @@ import type { Project, ProjectsData } from '@/types/data';
 const projects: Project[] = [
   {
     id: 1,
-    title: "Tela de Login do Instagram",
-    description: "Clone da tela de login do Instagram, criado como projeto de treinamento das tecnologias base do desenvolvimento web.",
-    image: "/projects/Tela-Insta.png",
-    technologies: ["HMTL5", "CSS3", "JavaScript"],
-    category: "frontend",
-    liveUrl: "https://login-instagram-gray.vercel.app/",
-    githubUrl: "https://github.com/CarlosDev0410/Login-Instagram",
+    title: "gerador de Etiquetas ZPL",
+    description: "Pagina de geração de etiquetas ZPL para Vendas e Logistica Reversa com API da Wake Commerce",
+    image: "/projects/label-generator.png",
+    technologies: ["NextJS", "Axios", "Typescript"],
+    category: "fullstack",
+    liveUrl: "https://gerador-etiqueta.vercel.app/",
+    githubUrl: "https://github.com/CarlosDev0410/label_generator",
     featured: true
   },
   {
