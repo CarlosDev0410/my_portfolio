@@ -18,7 +18,7 @@ const projects: Project[] = [
     description: "Script com GUI criado para automatizar o processo de extração de dados do BD. Demanda otimizada de 10min para 10seg",
     image: "/projects/image (1).png",
     technologies: ["Python", "Tkinter", "SQL"],
-    category: "Backend",
+    category: "backend",
     liveUrl: "https://github.com/CarlosDev0410/Auto-Extract-Data-Offer",
     githubUrl: "https://github.com/CarlosDev0410/Auto-Extract-Data-Offer",
     featured: true
