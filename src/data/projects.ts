@@ -14,13 +14,13 @@ const projects: Project[] = [
   },
   {
     id: 2,
-    title: "Landing Page Seal World",
-    description: "Landing page criada com as tecnologias base do desenvolvimento Web. Manipulação de videos na pagina, background e estilização moderna.",
-    image: "/projects/seal-word.png",
-    technologies: ["HTML5", "CSS3", "JavaScript"],
-    category: "frontend",
-    liveUrl: "https://sela-world.vercel.app/",
-    githubUrl: "https://github.com/CarlosDev0410/Projeto-Seal.World",
+    title: "Gerador de Planilha Oferta Relâmpago",
+    description: "Script com GUI criado para automatizar o processo de extração de dados do BD. Demanda otimizada de 10min para 10seg",
+    image: "/projects/image (1).png",
+    technologies: ["Python", "Tkinter", "SQL"],
+    category: "Backend",
+    liveUrl: "https://github.com/CarlosDev0410/Auto-Extract-Data-Offer",
+    githubUrl: "https://github.com/CarlosDev0410/Auto-Extract-Data-Offer",
     featured: true
   },
   {
